@@ -32,9 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnMatrify = new System.Windows.Forms.Button();
-            this.btnGen = new System.Windows.Forms.Button();
             this.nudA_m = new System.Windows.Forms.NumericUpDown();
             this.nudA_n = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnDisplay = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudA_m)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudA_n)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +50,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(284, 20);
+            this.label1.Location = new System.Drawing.Point(67, 106);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 25);
             this.label1.TabIndex = 5;
@@ -58,7 +59,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(419, 20);
+            this.label2.Location = new System.Drawing.Point(202, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(24, 25);
             this.label2.TabIndex = 6;
@@ -67,7 +68,7 @@
             // btnMatrify
             // 
             this.btnMatrify.Font = new System.Drawing.Font("Segoe Script", 16.125F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMatrify.Location = new System.Drawing.Point(674, 247);
+            this.btnMatrify.Location = new System.Drawing.Point(361, 12);
             this.btnMatrify.Name = "btnMatrify";
             this.btnMatrify.Size = new System.Drawing.Size(218, 188);
             this.btnMatrify.TabIndex = 7;
@@ -75,18 +76,9 @@
             this.btnMatrify.UseVisualStyleBackColor = true;
             this.btnMatrify.Click += new System.EventHandler(this.btnMatrify_Click);
             // 
-            // btnGen
-            // 
-            this.btnGen.Location = new System.Drawing.Point(43, 103);
-            this.btnGen.Name = "btnGen";
-            this.btnGen.Size = new System.Drawing.Size(176, 66);
-            this.btnGen.TabIndex = 1;
-            this.btnGen.Text = "Generate";
-            this.btnGen.UseVisualStyleBackColor = true;
-            // 
             // nudA_m
             // 
-            this.nudA_m.Location = new System.Drawing.Point(270, 48);
+            this.nudA_m.Location = new System.Drawing.Point(53, 134);
             this.nudA_m.Maximum = new decimal(new int[] {
             10,
             0,
@@ -109,7 +101,7 @@
             // 
             // nudA_n
             // 
-            this.nudA_n.Location = new System.Drawing.Point(407, 48);
+            this.nudA_n.Location = new System.Drawing.Point(190, 134);
             this.nudA_n.Maximum = new decimal(new int[] {
             10,
             0,
@@ -130,17 +122,38 @@
             0});
             this.nudA_n.ValueChanged += new System.EventHandler(this.nudA_n_ValueChanged);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(125, 60);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 25);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "A";
+            // 
+            // btnDisplay
+            // 
+            this.btnDisplay.Font = new System.Drawing.Font("Segoe Script", 16.125F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDisplay.Location = new System.Drawing.Point(701, 106);
+            this.btnDisplay.Name = "btnDisplay";
+            this.btnDisplay.Size = new System.Drawing.Size(218, 188);
+            this.btnDisplay.TabIndex = 11;
+            this.btnDisplay.Text = "Display";
+            this.btnDisplay.UseVisualStyleBackColor = true;
+            this.btnDisplay.Click += new System.EventHandler(this.btnDisplay_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1621, 837);
+            this.ClientSize = new System.Drawing.Size(1074, 837);
+            this.Controls.Add(this.btnDisplay);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.nudA_n);
             this.Controls.Add(this.nudA_m);
             this.Controls.Add(this.btnMatrify);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnGen);
             this.Controls.Add(this.flpMatrixA);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
@@ -158,9 +171,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnMatrify;
-        private System.Windows.Forms.Button btnGen;
         private System.Windows.Forms.NumericUpDown nudA_m;
         private System.Windows.Forms.NumericUpDown nudA_n;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnDisplay;
     }
 }
 

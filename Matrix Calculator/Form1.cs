@@ -12,6 +12,7 @@ namespace Matrix_Calculator
 {
     public partial class Form1 : Form
     {
+        States CurrentState = States.STORE;
         public Form1()
         {
             
@@ -59,7 +60,26 @@ namespace Matrix_Calculator
 
         }
 
-        private Matrix ConvertToMatrix(FlowLayoutPanel flp, NumericUpDown nudM, NumericUpDown nudN)
+        private void displayMatrix(FlowLayoutPanel flp, NumericUpDown nudM, NumericUpDown nudN, Matrix matrix)
+        {
+            int m = matrix.getM();
+            int n = matrix.getN();
+            nudM.Value = m;
+            nudN.Value = n;
+            resizeMatrix(flp, nudM, nudN);
+            int count = 0;
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    flp.Controls[count].Text = matrix.getValue(i, j).ToString();
+                    count++;
+                }
+            }
+
+        }
+
+            private Matrix ConvertToMatrix(FlowLayoutPanel flp, NumericUpDown nudM, NumericUpDown nudN)
         {
             m = Convert.ToInt32(nudM.Value);
             n = Convert.ToInt32(nudN.Value);
@@ -75,10 +95,10 @@ namespace Matrix_Calculator
             }
             return new Matrix(matrix_kyd);
         }
-
+        Matrix A;
         private void btnMatrify_Click(object sender, EventArgs e)
         {
-            Matrix A = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+            A = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
             MessageBox.Show(A.ToString());
         }
 
@@ -114,6 +134,11 @@ namespace Matrix_Calculator
         private void nudA_n_ValueChanged(object sender, EventArgs e)
         {
             resizeMatrix(flpMatrixA, nudA_m, nudA_n);
+        }
+
+        private void btnDisplay_Click(object sender, EventArgs e)
+        {
+            displayMatrix(flpMatrixA, nudA_m, nudA_n, A);
         }
     }
 }

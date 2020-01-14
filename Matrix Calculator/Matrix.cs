@@ -196,17 +196,17 @@ namespace Matrix_Calculator
             return str;
         }
 
-        private int getM()
+        public int getM()
         {
             return M;
         }
 
-        private int getN()
+        public int getN()
         {
             return N;
         }
 
-        private double getValue(int i, int j)
+        public double getValue(int i, int j)
         {
             return values[i, j];
         }
