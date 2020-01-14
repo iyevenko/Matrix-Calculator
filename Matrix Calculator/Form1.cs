@@ -16,6 +16,7 @@ namespace Matrix_Calculator
         {
             
             InitializeComponent();
+            resizeMatrix(flpMatrixA, nudA_m, nudA_n);
             /*
             double[,] val1 = {{1, 2, 3}, 
                               {4, 5, 6}};
@@ -46,51 +47,73 @@ namespace Matrix_Calculator
         }
         public int n;
         public int m;
-        private void btnGen_Click(object sender, EventArgs e)
-        {
-            flowLayoutPanel1.Controls.Clear();
-            n = Convert.ToInt32(txtWidth.Text);
-            m = Convert.ToInt32(txtHeight.Text);
-            if (n < 9)
-            {
-                flowLayoutPanel1.Width = n * 40;
-            }
-            else
-            {
-                flowLayoutPanel1.Width = n * 38;
-            }
-            
-            for (int n = 0; n < m; n++)
-            {
-                for (int m = 0; m < n; m++)
-                { 
-                    flowLayoutPanel1.Controls.Add(tbox(n+1, m+1));
-                }
-            }
-        }
-
-        List<TextBox> tbs = new List<TextBox>();
-
-        TextBox tbox(int n, int m)
+  
+        TextBox tbox(int m, int n)
         {
             TextBox t = new TextBox();
-            string name = "txt_" + n.ToString() + "_" + m.ToString();
+            string name = "txt_" + m.ToString() + "_" + n.ToString();
             t.Name = name;
             t.Width = 30;
             t.Height = 100;
-            //t.Text = name;
-            tbs.Add(t);
             return t;
 
         }
 
+        private Matrix ConvertToMatrix(FlowLayoutPanel flp, NumericUpDown nudM, NumericUpDown nudN)
+        {
+            m = Convert.ToInt32(nudM.Value);
+            n = Convert.ToInt32(nudN.Value);
+            double[,] matrix_kyd = new double[m, n];
+            int count = 0;
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    matrix_kyd[i, j] = Convert.ToDouble(flp.Controls[count].Text);
+                    count++;
+                }
+            }
+            return new Matrix(matrix_kyd);
+        }
+
         private void btnMatrify_Click(object sender, EventArgs e)
         {
-            double[,] matrix_kyd = new double[m, n];
-            for (int i = 0; i < n; i++)
+            Matrix A = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+            MessageBox.Show(A.ToString());
+        }
+
+        private void resizeMatrix(FlowLayoutPanel flp, NumericUpDown nudM, NumericUpDown nudN)
+        {
+            flp.Controls.Clear();
+            m = Convert.ToInt32(nudM.Value);
+            n = Convert.ToInt32(nudN.Value);
+
+            if (n < 9)
             {
-                
+                flp.Width = n * 40;
             }
+            else
+            {
+                flp.Width = n * 38;
+            }
+
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    flp.Controls.Add(tbox(m + 1, n + 1));
+                }
+            }
+        }
+
+        private void nudA_m_ValueChanged(object sender, EventArgs e)
+        {
+            resizeMatrix(flpMatrixA, nudA_m, nudA_n);
+        }
+
+        private void nudA_n_ValueChanged(object sender, EventArgs e)
+        {
+            resizeMatrix(flpMatrixA, nudA_m, nudA_n);
         }
     }
 }
