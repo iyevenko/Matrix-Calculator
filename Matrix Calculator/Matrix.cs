@@ -166,6 +166,7 @@ namespace Matrix_Calculator
         {
             Matrix L = new Matrix(M, N);
             Matrix U = new Matrix(values);
+            return 0;
 
         }
 
