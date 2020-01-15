@@ -10,6 +10,9 @@ namespace Matrix_Calculator
     {
         SELECT,     // select matrix to perform operation (press operation next)
         STORE,      // store currently shown matrix (press storage key next; ie A,B,C,D,E)
-        OPERATION   // once first matrix is selected, operation has been pressed (press second matrix next)
+        OPERATION,   // once first matrix is selected, operation has been pressed (press second matrix next)
+        ADD,
+        SUBTRACT,
+        MULTIPLY
     };
 }

@@ -12,7 +12,12 @@ namespace Matrix_Calculator
 {
     public partial class Form1 : Form
     {
-        States CurrentState = States.STORE;
+        public States CurrentState = States.STORE;
+        public Matrix A;
+        public Matrix B;
+        public Matrix C;
+        public Matrix selectedMatrix;
+
         public Form1()
         {
             
@@ -95,12 +100,14 @@ namespace Matrix_Calculator
             }
             return new Matrix(matrix_kyd);
         }
+        /*
         Matrix A;
         private void btnMatrify_Click(object sender, EventArgs e)
         {
             A = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
             MessageBox.Show(A.ToString());
         }
+        */
 
         private void resizeMatrix(FlowLayoutPanel flp, NumericUpDown nudM, NumericUpDown nudN)
         {
@@ -139,6 +146,73 @@ namespace Matrix_Calculator
         private void btnDisplay_Click(object sender, EventArgs e)
         {
             displayMatrix(flpMatrixA, nudA_m, nudA_n, A);
+        }
+
+        private void btnStore_Click(object sender, EventArgs e)
+        {
+            CurrentState = States.STORE;
+        }
+
+        private void btnA_Click(object sender, EventArgs e)
+        {
+            StateHandle(ref A);
+        }
+
+        private void btnB_Click(object sender, EventArgs e)
+        {
+            StateHandle(ref B);
+        }
+
+        private void btnC_Click(object sender, EventArgs e)
+        {
+            StateHandle(ref C);
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            CurrentState = States.ADD;
+        }
+
+        private void btnSubtract_Click(object sender, EventArgs e)
+        {
+            CurrentState = States.SUBTRACT;
+        }
+
+        private void StateHandle(ref Matrix self)
+        {
+            //MessageBox.Show(CurrentState.ToString());
+            if (CurrentState == States.STORE)
+            {
+               self = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+                selectedMatrix = self;
+                   
+            }
+            else if (CurrentState == States.ADD)
+            {
+                selectedMatrix = selectedMatrix + self;
+                displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+            }
+            else if (CurrentState == States.SUBTRACT)
+            {
+                selectedMatrix = selectedMatrix - self;
+                displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+            }
+            else if (CurrentState == States.MULTIPLY)
+            {
+                selectedMatrix = selectedMatrix * self;
+                displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+            }
+            else
+            {
+                displayMatrix(flpMatrixA, nudA_m, nudA_n, self);
+                selectedMatrix = self;
+            }
+            CurrentState = States.SELECT;
+        }
+
+        private void btnMultiply_Click(object sender, EventArgs e)
+        {
+            CurrentState = States.MULTIPLY;
         }
     }
 }

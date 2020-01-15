@@ -35,7 +35,13 @@
             this.nudA_m = new System.Windows.Forms.NumericUpDown();
             this.nudA_n = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnDisplay = new System.Windows.Forms.Button();
+            this.btnStore = new System.Windows.Forms.Button();
+            this.btnA = new System.Windows.Forms.Button();
+            this.btnB = new System.Windows.Forms.Button();
+            this.btnC = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSubtract = new System.Windows.Forms.Button();
+            this.btnMultiply = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudA_m)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudA_n)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +80,6 @@
             this.btnMatrify.TabIndex = 7;
             this.btnMatrify.Text = "Matrify";
             this.btnMatrify.UseVisualStyleBackColor = true;
-            this.btnMatrify.Click += new System.EventHandler(this.btnMatrify_Click);
             // 
             // nudA_m
             // 
@@ -131,23 +136,88 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "A";
             // 
-            // btnDisplay
+            // btnStore
             // 
-            this.btnDisplay.Font = new System.Drawing.Font("Segoe Script", 16.125F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDisplay.Location = new System.Drawing.Point(701, 106);
-            this.btnDisplay.Name = "btnDisplay";
-            this.btnDisplay.Size = new System.Drawing.Size(218, 188);
-            this.btnDisplay.TabIndex = 11;
-            this.btnDisplay.Text = "Display";
-            this.btnDisplay.UseVisualStyleBackColor = true;
-            this.btnDisplay.Click += new System.EventHandler(this.btnDisplay_Click);
+            this.btnStore.Location = new System.Drawing.Point(705, 47);
+            this.btnStore.Name = "btnStore";
+            this.btnStore.Size = new System.Drawing.Size(167, 84);
+            this.btnStore.TabIndex = 12;
+            this.btnStore.Text = "Store";
+            this.btnStore.UseVisualStyleBackColor = true;
+            this.btnStore.Click += new System.EventHandler(this.btnStore_Click);
+            // 
+            // btnA
+            // 
+            this.btnA.Location = new System.Drawing.Point(771, 463);
+            this.btnA.Name = "btnA";
+            this.btnA.Size = new System.Drawing.Size(167, 84);
+            this.btnA.TabIndex = 13;
+            this.btnA.Text = "A";
+            this.btnA.UseVisualStyleBackColor = true;
+            this.btnA.Click += new System.EventHandler(this.btnA_Click);
+            // 
+            // btnB
+            // 
+            this.btnB.Location = new System.Drawing.Point(771, 553);
+            this.btnB.Name = "btnB";
+            this.btnB.Size = new System.Drawing.Size(167, 84);
+            this.btnB.TabIndex = 14;
+            this.btnB.Text = "B";
+            this.btnB.UseVisualStyleBackColor = true;
+            this.btnB.Click += new System.EventHandler(this.btnB_Click);
+            // 
+            // btnC
+            // 
+            this.btnC.Location = new System.Drawing.Point(771, 643);
+            this.btnC.Name = "btnC";
+            this.btnC.Size = new System.Drawing.Size(167, 84);
+            this.btnC.TabIndex = 15;
+            this.btnC.Text = "C";
+            this.btnC.UseVisualStyleBackColor = true;
+            this.btnC.Click += new System.EventHandler(this.btnC_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(705, 137);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(167, 84);
+            this.btnAdd.TabIndex = 16;
+            this.btnAdd.Text = "+";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnSubtract
+            // 
+            this.btnSubtract.Location = new System.Drawing.Point(705, 227);
+            this.btnSubtract.Name = "btnSubtract";
+            this.btnSubtract.Size = new System.Drawing.Size(167, 84);
+            this.btnSubtract.TabIndex = 17;
+            this.btnSubtract.Text = "-";
+            this.btnSubtract.UseVisualStyleBackColor = true;
+            this.btnSubtract.Click += new System.EventHandler(this.btnSubtract_Click);
+            // 
+            // btnMultiply
+            // 
+            this.btnMultiply.Location = new System.Drawing.Point(705, 317);
+            this.btnMultiply.Name = "btnMultiply";
+            this.btnMultiply.Size = new System.Drawing.Size(167, 84);
+            this.btnMultiply.TabIndex = 18;
+            this.btnMultiply.Text = "*";
+            this.btnMultiply.UseVisualStyleBackColor = true;
+            this.btnMultiply.Click += new System.EventHandler(this.btnMultiply_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1074, 837);
-            this.Controls.Add(this.btnDisplay);
+            this.Controls.Add(this.btnMultiply);
+            this.Controls.Add(this.btnSubtract);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnC);
+            this.Controls.Add(this.btnB);
+            this.Controls.Add(this.btnA);
+            this.Controls.Add(this.btnStore);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nudA_n);
             this.Controls.Add(this.nudA_m);
@@ -174,7 +244,13 @@
         private System.Windows.Forms.NumericUpDown nudA_m;
         private System.Windows.Forms.NumericUpDown nudA_n;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnDisplay;
+        private System.Windows.Forms.Button btnStore;
+        private System.Windows.Forms.Button btnA;
+        private System.Windows.Forms.Button btnB;
+        private System.Windows.Forms.Button btnC;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnSubtract;
+        private System.Windows.Forms.Button btnMultiply;
     }
 }
 
