@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,9 +14,9 @@ namespace Matrix_Calculator
     public partial class Form1 : Form
     {
         public States CurrentState = States.STORE;
-        public Matrix A;
-        public Matrix B;
-        public Matrix C;
+        public Matrix A = null;
+        public Matrix B = null;
+        public Matrix C = null;
         public Matrix selectedMatrix;
 
         public Form1()
@@ -150,10 +151,32 @@ namespace Matrix_Calculator
 
         private void btnStore_Click(object sender, EventArgs e)
         {
-            CurrentState = States.STORE;
-            btnA.Enabled = true;
-            btnB.Enabled = true;
-            btnC.Enabled = true;
+            bool allValid = true;
+            foreach (Control tbox in flpMatrixA.Controls)
+            {
+                if (!Regex.IsMatch(tbox.Text, @"^\d+$"))
+                {
+                    allValid = false;
+                    break;
+                }
+            }
+            if (allValid)
+            {
+                btnA.Enabled = true;
+                btnB.Enabled = true;
+                btnC.Enabled = true;
+                CurrentState = States.STORE;
+            }
+            else
+            {
+                MessageBox.Show("Ensure your matrix is full and only numbers!");
+            }
+            
+            /*
+            btnAdd.Enabled = false;
+            btnSubtract.Enabled = false;
+            btnMultiply.Enabled = false;
+            */
         }
 
         private void btnA_Click(object sender, EventArgs e)
@@ -183,7 +206,6 @@ namespace Matrix_Calculator
 
         private void StateHandle(ref Matrix self)
         {
-
             if (CurrentState == States.STORE)
             {
                 self = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
@@ -211,6 +233,20 @@ namespace Matrix_Calculator
                 selectedMatrix = self;
             }
             CurrentState = States.SELECT;
+
+            if (A == null)
+            {
+                btnA.Enabled = false;
+            }
+            if (B == null)
+            {
+                btnB.Enabled = false;
+            }
+            if (C == null)
+            {
+                btnC.Enabled = false;
+            }
+            
 
         }
 
