@@ -20,7 +20,7 @@ namespace Matrix_Calculator
 
         public Form1()
         {
-            
+
             InitializeComponent();
             resizeMatrix(flpMatrixA, nudA_m, nudA_n);
             /*
@@ -53,7 +53,7 @@ namespace Matrix_Calculator
         }
         public int n;
         public int m;
-  
+
         TextBox tbox(int m, int n)
         {
             TextBox t = new TextBox();
@@ -84,7 +84,7 @@ namespace Matrix_Calculator
 
         }
 
-            private Matrix ConvertToMatrix(FlowLayoutPanel flp, NumericUpDown nudM, NumericUpDown nudN)
+        private Matrix ConvertToMatrix(FlowLayoutPanel flp, NumericUpDown nudM, NumericUpDown nudN)
         {
             m = Convert.ToInt32(nudM.Value);
             n = Convert.ToInt32(nudN.Value);
@@ -151,6 +151,9 @@ namespace Matrix_Calculator
         private void btnStore_Click(object sender, EventArgs e)
         {
             CurrentState = States.STORE;
+            btnA.Enabled = true;
+            btnB.Enabled = true;
+            btnC.Enabled = true;
         }
 
         private void btnA_Click(object sender, EventArgs e)
@@ -180,12 +183,12 @@ namespace Matrix_Calculator
 
         private void StateHandle(ref Matrix self)
         {
-            //MessageBox.Show(CurrentState.ToString());
+
             if (CurrentState == States.STORE)
             {
-               self = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+                self = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
                 selectedMatrix = self;
-                   
+
             }
             else if (CurrentState == States.ADD)
             {
@@ -208,11 +211,19 @@ namespace Matrix_Calculator
                 selectedMatrix = self;
             }
             CurrentState = States.SELECT;
+
         }
 
         private void btnMultiply_Click(object sender, EventArgs e)
         {
             CurrentState = States.MULTIPLY;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            btnA.Enabled = false;
+            btnB.Enabled = false;
+            btnC.Enabled = false;
         }
     }
 }
