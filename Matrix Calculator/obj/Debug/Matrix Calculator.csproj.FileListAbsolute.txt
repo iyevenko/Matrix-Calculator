@@ -7,3 +7,13 @@ C:\Users\Ivan Yevenko\Desktop\Comp Sci Projects\_ICS_4U0\Matrix Calculator\Matri
 C:\Users\Ivan Yevenko\Desktop\Comp Sci Projects\_ICS_4U0\Matrix Calculator\Matrix Calculator\Matrix Calculator\obj\Debug\Matrix Calculator.csproj.CoreCompileInputs.cache
 C:\Users\Ivan Yevenko\Desktop\Comp Sci Projects\_ICS_4U0\Matrix Calculator\Matrix Calculator\Matrix Calculator\obj\Debug\Matrix Calculator.exe
 C:\Users\Ivan Yevenko\Desktop\Comp Sci Projects\_ICS_4U0\Matrix Calculator\Matrix Calculator\Matrix Calculator\obj\Debug\Matrix Calculator.pdb
+C:\Users\Andrew\source\repos\Matrix-Calculator\Matrix Calculator\obj\Debug\Matrix Calculator.csprojAssemblyReference.cache
+C:\Users\Andrew\source\repos\Matrix-Calculator\Matrix Calculator\obj\Debug\Matrix_Calculator.Form1.resources
+C:\Users\Andrew\source\repos\Matrix-Calculator\Matrix Calculator\obj\Debug\Matrix_Calculator.Properties.Resources.resources
+C:\Users\Andrew\source\repos\Matrix-Calculator\Matrix Calculator\obj\Debug\Matrix Calculator.csproj.GenerateResource.cache
+C:\Users\Andrew\source\repos\Matrix-Calculator\Matrix Calculator\obj\Debug\Matrix Calculator.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\source\repos\Matrix-Calculator\Matrix Calculator\obj\Debug\Matrix Calculator.exe
+C:\Users\Andrew\source\repos\Matrix-Calculator\Matrix Calculator\obj\Debug\Matrix Calculator.pdb
+C:\Users\Andrew\source\repos\Matrix-Calculator\Matrix Calculator\bin\Debug\Matrix Calculator.exe.config
+C:\Users\Andrew\source\repos\Matrix-Calculator\Matrix Calculator\bin\Debug\Matrix Calculator.exe
+C:\Users\Andrew\source\repos\Matrix-Calculator\Matrix Calculator\bin\Debug\Matrix Calculator.pdb
