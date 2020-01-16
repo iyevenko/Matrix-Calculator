@@ -31,10 +31,8 @@
             this.flpMatrixA = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnMatrify = new System.Windows.Forms.Button();
             this.nudA_m = new System.Windows.Forms.NumericUpDown();
             this.nudA_n = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnStore = new System.Windows.Forms.Button();
             this.btnA = new System.Windows.Forms.Button();
             this.btnB = new System.Windows.Forms.Button();
@@ -42,6 +40,12 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSubtract = new System.Windows.Forms.Button();
             this.btnMultiply = new System.Windows.Forms.Button();
+            this.btnTranspose = new System.Windows.Forms.Button();
+            this.btnDeterminant = new System.Windows.Forms.Button();
+            this.btnRank = new System.Windows.Forms.Button();
+            this.btnUpperTriangular = new System.Windows.Forms.Button();
+            this.btnLowerTriangular = new System.Windows.Forms.Button();
+            this.btnRREF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudA_m)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudA_n)).BeginInit();
             this.SuspendLayout();
@@ -70,16 +74,6 @@
             this.label2.Size = new System.Drawing.Size(24, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "n";
-            // 
-            // btnMatrify
-            // 
-            this.btnMatrify.Font = new System.Drawing.Font("Segoe Script", 16.125F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMatrify.Location = new System.Drawing.Point(361, 12);
-            this.btnMatrify.Name = "btnMatrify";
-            this.btnMatrify.Size = new System.Drawing.Size(218, 188);
-            this.btnMatrify.TabIndex = 7;
-            this.btnMatrify.Text = "Matrify";
-            this.btnMatrify.UseVisualStyleBackColor = true;
             // 
             // nudA_m
             // 
@@ -127,15 +121,6 @@
             0});
             this.nudA_n.ValueChanged += new System.EventHandler(this.nudA_n_ValueChanged);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(125, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 25);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "A";
-            // 
             // btnStore
             // 
             this.btnStore.Location = new System.Drawing.Point(705, 47);
@@ -148,7 +133,7 @@
             // 
             // btnA
             // 
-            this.btnA.Location = new System.Drawing.Point(771, 463);
+            this.btnA.Location = new System.Drawing.Point(1064, 118);
             this.btnA.Name = "btnA";
             this.btnA.Size = new System.Drawing.Size(167, 84);
             this.btnA.TabIndex = 13;
@@ -158,7 +143,7 @@
             // 
             // btnB
             // 
-            this.btnB.Location = new System.Drawing.Point(771, 553);
+            this.btnB.Location = new System.Drawing.Point(1064, 208);
             this.btnB.Name = "btnB";
             this.btnB.Size = new System.Drawing.Size(167, 84);
             this.btnB.TabIndex = 14;
@@ -168,7 +153,7 @@
             // 
             // btnC
             // 
-            this.btnC.Location = new System.Drawing.Point(771, 643);
+            this.btnC.Location = new System.Drawing.Point(1064, 298);
             this.btnC.Name = "btnC";
             this.btnC.Size = new System.Drawing.Size(167, 84);
             this.btnC.TabIndex = 15;
@@ -206,11 +191,77 @@
             this.btnMultiply.UseVisualStyleBackColor = true;
             this.btnMultiply.Click += new System.EventHandler(this.btnMultiply_Click);
             // 
+            // btnTranspose
+            // 
+            this.btnTranspose.Location = new System.Drawing.Point(705, 442);
+            this.btnTranspose.Name = "btnTranspose";
+            this.btnTranspose.Size = new System.Drawing.Size(167, 84);
+            this.btnTranspose.TabIndex = 19;
+            this.btnTranspose.Text = "Transpose";
+            this.btnTranspose.UseVisualStyleBackColor = true;
+            this.btnTranspose.Click += new System.EventHandler(this.btnTranspose_Click);
+            // 
+            // btnDeterminant
+            // 
+            this.btnDeterminant.Location = new System.Drawing.Point(705, 532);
+            this.btnDeterminant.Name = "btnDeterminant";
+            this.btnDeterminant.Size = new System.Drawing.Size(167, 84);
+            this.btnDeterminant.TabIndex = 20;
+            this.btnDeterminant.Text = "Determinant";
+            this.btnDeterminant.UseVisualStyleBackColor = true;
+            this.btnDeterminant.Click += new System.EventHandler(this.btnDeterminant_Click);
+            // 
+            // btnRank
+            // 
+            this.btnRank.Location = new System.Drawing.Point(705, 622);
+            this.btnRank.Name = "btnRank";
+            this.btnRank.Size = new System.Drawing.Size(167, 84);
+            this.btnRank.TabIndex = 21;
+            this.btnRank.Text = "Rank";
+            this.btnRank.UseVisualStyleBackColor = true;
+            this.btnRank.Click += new System.EventHandler(this.btnRank_Click);
+            // 
+            // btnUpperTriangular
+            // 
+            this.btnUpperTriangular.Location = new System.Drawing.Point(705, 712);
+            this.btnUpperTriangular.Name = "btnUpperTriangular";
+            this.btnUpperTriangular.Size = new System.Drawing.Size(167, 84);
+            this.btnUpperTriangular.TabIndex = 22;
+            this.btnUpperTriangular.Text = "Upper Triangular";
+            this.btnUpperTriangular.UseVisualStyleBackColor = true;
+            this.btnUpperTriangular.Click += new System.EventHandler(this.btnUpperTriangular_Click);
+            // 
+            // btnLowerTriangular
+            // 
+            this.btnLowerTriangular.Location = new System.Drawing.Point(878, 712);
+            this.btnLowerTriangular.Name = "btnLowerTriangular";
+            this.btnLowerTriangular.Size = new System.Drawing.Size(167, 84);
+            this.btnLowerTriangular.TabIndex = 23;
+            this.btnLowerTriangular.Text = "Lower Triangular";
+            this.btnLowerTriangular.UseVisualStyleBackColor = true;
+            this.btnLowerTriangular.Click += new System.EventHandler(this.btnLowerTriangular_Click);
+            // 
+            // btnRREF
+            // 
+            this.btnRREF.Location = new System.Drawing.Point(878, 442);
+            this.btnRREF.Name = "btnRREF";
+            this.btnRREF.Size = new System.Drawing.Size(167, 84);
+            this.btnRREF.TabIndex = 24;
+            this.btnRREF.Text = "RREF";
+            this.btnRREF.UseVisualStyleBackColor = true;
+            this.btnRREF.Click += new System.EventHandler(this.btnRREF_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1074, 837);
+            this.ClientSize = new System.Drawing.Size(1352, 837);
+            this.Controls.Add(this.btnRREF);
+            this.Controls.Add(this.btnLowerTriangular);
+            this.Controls.Add(this.btnUpperTriangular);
+            this.Controls.Add(this.btnRank);
+            this.Controls.Add(this.btnDeterminant);
+            this.Controls.Add(this.btnTranspose);
             this.Controls.Add(this.btnMultiply);
             this.Controls.Add(this.btnSubtract);
             this.Controls.Add(this.btnAdd);
@@ -218,10 +269,8 @@
             this.Controls.Add(this.btnB);
             this.Controls.Add(this.btnA);
             this.Controls.Add(this.btnStore);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.nudA_n);
             this.Controls.Add(this.nudA_m);
-            this.Controls.Add(this.btnMatrify);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flpMatrixA);
@@ -241,10 +290,8 @@
         private System.Windows.Forms.FlowLayoutPanel flpMatrixA;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnMatrify;
         private System.Windows.Forms.NumericUpDown nudA_m;
         private System.Windows.Forms.NumericUpDown nudA_n;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnStore;
         private System.Windows.Forms.Button btnA;
         private System.Windows.Forms.Button btnB;
@@ -252,6 +299,12 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSubtract;
         private System.Windows.Forms.Button btnMultiply;
+        private System.Windows.Forms.Button btnTranspose;
+        private System.Windows.Forms.Button btnDeterminant;
+        private System.Windows.Forms.Button btnRank;
+        private System.Windows.Forms.Button btnUpperTriangular;
+        private System.Windows.Forms.Button btnLowerTriangular;
+        private System.Windows.Forms.Button btnRREF;
     }
 }
 

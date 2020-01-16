@@ -366,14 +366,6 @@ namespace Matrix_Calculator
 
         }
 
-        public Matrix inverse()
-        {
-            if (determinant() == 0)
-            {
-                throw new ArgumentException();
-            }
-        }
-
         public bool isSquare()
         {
             return M == N;
