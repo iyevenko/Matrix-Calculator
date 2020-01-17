@@ -64,7 +64,7 @@
             this.flpMatrixA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpMatrixA.Name = "flpMatrixA";
             this.flpMatrixA.Size = new System.Drawing.Size(632, 614);
-            this.flpMatrixA.TabIndex = 0;
+            this.flpMatrixA.TabIndex = 2;
             // 
             // label1
             // 
@@ -100,7 +100,7 @@
             0});
             this.nudA_m.Name = "nudA_m";
             this.nudA_m.Size = new System.Drawing.Size(120, 31);
-            this.nudA_m.TabIndex = 8;
+            this.nudA_m.TabIndex = 0;
             this.nudA_m.Value = new decimal(new int[] {
             1,
             0,
@@ -124,7 +124,7 @@
             0});
             this.nudA_n.Name = "nudA_n";
             this.nudA_n.Size = new System.Drawing.Size(120, 31);
-            this.nudA_n.TabIndex = 9;
+            this.nudA_n.TabIndex = 1;
             this.nudA_n.Value = new decimal(new int[] {
             1,
             0,
@@ -134,78 +134,81 @@
             // 
             // btnStore
             // 
-            this.btnStore.Location = new System.Drawing.Point(1056, 59);
+            this.btnStore.Location = new System.Drawing.Point(1091, 62);
             this.btnStore.Margin = new System.Windows.Forms.Padding(4);
             this.btnStore.Name = "btnStore";
             this.btnStore.Size = new System.Drawing.Size(167, 84);
-            this.btnStore.TabIndex = 12;
+            this.btnStore.TabIndex = 3;
             this.btnStore.Text = "Store";
             this.btnStore.UseVisualStyleBackColor = true;
             this.btnStore.Click += new System.EventHandler(this.btnStore_Click);
             // 
             // btnA
             // 
-            this.btnA.Location = new System.Drawing.Point(1535, 148);
+            this.btnA.Location = new System.Drawing.Point(1091, 174);
             this.btnA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnA.Name = "btnA";
             this.btnA.Size = new System.Drawing.Size(167, 84);
-            this.btnA.TabIndex = 13;
+            this.btnA.TabIndex = 3;
             this.btnA.Text = "A";
             this.btnA.UseVisualStyleBackColor = true;
             this.btnA.Click += new System.EventHandler(this.btnA_Click);
             // 
             // btnB
             // 
-            this.btnB.Location = new System.Drawing.Point(1535, 260);
+            this.btnB.Location = new System.Drawing.Point(1091, 287);
             this.btnB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnB.Name = "btnB";
             this.btnB.Size = new System.Drawing.Size(167, 84);
-            this.btnB.TabIndex = 14;
+            this.btnB.TabIndex = 4;
             this.btnB.Text = "B";
             this.btnB.UseVisualStyleBackColor = true;
             this.btnB.Click += new System.EventHandler(this.btnB_Click);
             // 
             // btnC
             // 
-            this.btnC.Location = new System.Drawing.Point(1535, 372);
+            this.btnC.Location = new System.Drawing.Point(1091, 399);
             this.btnC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnC.Name = "btnC";
             this.btnC.Size = new System.Drawing.Size(167, 84);
-            this.btnC.TabIndex = 15;
+            this.btnC.TabIndex = 5;
             this.btnC.Text = "C";
             this.btnC.UseVisualStyleBackColor = true;
             this.btnC.Click += new System.EventHandler(this.btnC_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(1056, 171);
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(1313, 174);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(167, 84);
-            this.btnAdd.TabIndex = 16;
+            this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSubtract
             // 
-            this.btnSubtract.Location = new System.Drawing.Point(1056, 284);
+            this.btnSubtract.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubtract.Location = new System.Drawing.Point(1313, 287);
             this.btnSubtract.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSubtract.Name = "btnSubtract";
             this.btnSubtract.Size = new System.Drawing.Size(167, 84);
-            this.btnSubtract.TabIndex = 17;
+            this.btnSubtract.TabIndex = 8;
             this.btnSubtract.Text = "-";
             this.btnSubtract.UseVisualStyleBackColor = true;
             this.btnSubtract.Click += new System.EventHandler(this.btnSubtract_Click);
             // 
             // btnMultiply
             // 
-            this.btnMultiply.Location = new System.Drawing.Point(1056, 396);
+            this.btnMultiply.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMultiply.Location = new System.Drawing.Point(1313, 399);
             this.btnMultiply.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMultiply.Name = "btnMultiply";
             this.btnMultiply.Size = new System.Drawing.Size(167, 84);
-            this.btnMultiply.TabIndex = 18;
-            this.btnMultiply.Text = "*";
+            this.btnMultiply.TabIndex = 9;
+            this.btnMultiply.Text = "x";
             this.btnMultiply.UseVisualStyleBackColor = true;
             this.btnMultiply.Click += new System.EventHandler(this.btnMultiply_Click);
             // 
@@ -219,7 +222,7 @@
             this.btnTranspose.Margin = new System.Windows.Forms.Padding(4);
             this.btnTranspose.Name = "btnTranspose";
             this.btnTranspose.Size = new System.Drawing.Size(223, 105);
-            this.btnTranspose.TabIndex = 19;
+            this.btnTranspose.TabIndex = 10;
             this.btnTranspose.Text = "Transpose";
             this.btnTranspose.UseVisualStyleBackColor = true;
             this.btnTranspose.Click += new System.EventHandler(this.btnTranspose_Click);
@@ -230,18 +233,18 @@
             this.btnDeterminant.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeterminant.Name = "btnDeterminant";
             this.btnDeterminant.Size = new System.Drawing.Size(223, 105);
-            this.btnDeterminant.TabIndex = 20;
+            this.btnDeterminant.TabIndex = 14;
             this.btnDeterminant.Text = "Determinant";
             this.btnDeterminant.UseVisualStyleBackColor = true;
             this.btnDeterminant.Click += new System.EventHandler(this.btnDeterminant_Click);
             // 
             // btnRank
             // 
-            this.btnRank.Location = new System.Drawing.Point(1056, 891);
+            this.btnRank.Location = new System.Drawing.Point(1287, 778);
             this.btnRank.Margin = new System.Windows.Forms.Padding(4);
             this.btnRank.Name = "btnRank";
             this.btnRank.Size = new System.Drawing.Size(223, 105);
-            this.btnRank.TabIndex = 21;
+            this.btnRank.TabIndex = 15;
             this.btnRank.Text = "Rank";
             this.btnRank.UseVisualStyleBackColor = true;
             this.btnRank.Click += new System.EventHandler(this.btnRank_Click);
@@ -252,7 +255,7 @@
             this.btnUpperTriangular.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpperTriangular.Name = "btnUpperTriangular";
             this.btnUpperTriangular.Size = new System.Drawing.Size(223, 105);
-            this.btnUpperTriangular.TabIndex = 22;
+            this.btnUpperTriangular.TabIndex = 12;
             this.btnUpperTriangular.Text = "Upper Triangular";
             this.btnUpperTriangular.UseVisualStyleBackColor = true;
             this.btnUpperTriangular.Click += new System.EventHandler(this.btnUpperTriangular_Click);
@@ -263,7 +266,7 @@
             this.btnLowerTriangular.Margin = new System.Windows.Forms.Padding(4);
             this.btnLowerTriangular.Name = "btnLowerTriangular";
             this.btnLowerTriangular.Size = new System.Drawing.Size(223, 105);
-            this.btnLowerTriangular.TabIndex = 23;
+            this.btnLowerTriangular.TabIndex = 13;
             this.btnLowerTriangular.Text = "Lower Triangular";
             this.btnLowerTriangular.UseVisualStyleBackColor = true;
             this.btnLowerTriangular.Click += new System.EventHandler(this.btnLowerTriangular_Click);
@@ -274,18 +277,18 @@
             this.btnRREF.Margin = new System.Windows.Forms.Padding(4);
             this.btnRREF.Name = "btnRREF";
             this.btnRREF.Size = new System.Drawing.Size(223, 105);
-            this.btnRREF.TabIndex = 24;
+            this.btnRREF.TabIndex = 11;
             this.btnRREF.Text = "RREF";
             this.btnRREF.UseVisualStyleBackColor = true;
             this.btnRREF.Click += new System.EventHandler(this.btnRREF_Click);
             // 
             // btnGenIdentity
             // 
-            this.btnGenIdentity.Location = new System.Drawing.Point(1251, 59);
+            this.btnGenIdentity.Location = new System.Drawing.Point(1314, 62);
             this.btnGenIdentity.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenIdentity.Name = "btnGenIdentity";
             this.btnGenIdentity.Size = new System.Drawing.Size(166, 84);
-            this.btnGenIdentity.TabIndex = 25;
+            this.btnGenIdentity.TabIndex = 6;
             this.btnGenIdentity.Text = "Generate Identity Matrix";
             this.btnGenIdentity.UseVisualStyleBackColor = true;
             this.btnGenIdentity.Click += new System.EventHandler(this.btnGenIdentity_Click);
@@ -297,7 +300,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2079, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1612, 40);
             this.menuStrip1.TabIndex = 26;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -307,20 +310,20 @@
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(173, 38);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(173, 38);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -328,7 +331,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2079, 1344);
+            this.ClientSize = new System.Drawing.Size(1612, 1029);
             this.Controls.Add(this.btnGenIdentity);
             this.Controls.Add(this.btnRREF);
             this.Controls.Add(this.btnLowerTriangular);
