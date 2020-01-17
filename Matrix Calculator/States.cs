@@ -13,6 +13,10 @@ namespace Matrix_Calculator
         OPERATION,   // once first matrix is selected, operation has been pressed (press second matrix next)
         ADD,
         SUBTRACT,
-        MULTIPLY
+        MULTIPLY,
+        TRANSPOSE,
+        UPPER_TRIANGULAR,
+        LOWER_TRIANGULAR,
+        RREF
     };
 }

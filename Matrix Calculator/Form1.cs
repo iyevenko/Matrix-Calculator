@@ -276,25 +276,13 @@ namespace Matrix_Calculator
 
         private void btnStore_Click(object sender, EventArgs e)
         {
-            bool allValid = true;
-            foreach (Control tbox in flpMatrixA.Controls)
-            {
-                if (!Regex.IsMatch(tbox.Text, @"^\d+$"))
-                {
-                    allValid = false;
-                    break;
-                }
-            }
-            if (allValid)
+            
+            if (validMatrix())
             {
                 btnA.Enabled = true;
                 btnB.Enabled = true;
                 btnC.Enabled = true;
                 CurrentState = States.STORE;
-            }
-            else
-            {
-                MessageBox.Show("Ensure your matrix is full and only numbers!");
             }
             
             /*
@@ -302,6 +290,21 @@ namespace Matrix_Calculator
             btnSubtract.Enabled = false;
             btnMultiply.Enabled = false;
             */
+        }
+
+        private bool validMatrix()
+        {
+            bool allValid = true;
+            foreach (Control tbox in flpMatrixA.Controls)
+            {
+                if (!Regex.IsMatch(tbox.Text, @"^\d+$"))
+                {
+                    allValid = false;
+                    MessageBox.Show("Ensure your matrix is full and only numbers!");
+                    break;
+                }
+            }
+            return allValid;
         }
 
         private void btnA_Click(object sender, EventArgs e)
@@ -352,6 +355,38 @@ namespace Matrix_Calculator
                 selectedMatrix = selectedMatrix * self;
                 displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
             }
+            else if (CurrentState == States.TRANSPOSE)
+            {
+                selectedMatrix = self.transpose();
+                displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+            }
+            /*
+            else if (CurrentState == States.DETERMINANT)
+            {
+                MessageBox.Show("Determinant of matrix is" + self.determinant().ToString());
+                //displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+            }
+            else if (CurrentState == States.RANK)
+            {
+                MessageBox.Show("Rank of matrix is" + self.determinant().ToString());
+                //displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+            }
+            */
+            else if (CurrentState == States.UPPER_TRIANGULAR)
+            {
+                selectedMatrix = self.decompose()[0];
+                displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+            }
+            else if (CurrentState == States.LOWER_TRIANGULAR)
+            {
+                selectedMatrix = self.decompose()[1];
+                displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+            }
+            else if (CurrentState == States.RREF)
+            {
+                selectedMatrix = self.rref();
+                displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+            }
             else
             {
                 displayMatrix(flpMatrixA, nudA_m, nudA_n, self);
@@ -385,6 +420,71 @@ namespace Matrix_Calculator
             btnA.Enabled = false;
             btnB.Enabled = false;
             btnC.Enabled = false;
+        }
+
+        private void btnRank_Click(object sender, EventArgs e)
+        {
+            if (validMatrix())
+            {
+                selectedMatrix = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+                int rank = selectedMatrix.getRank();
+                if (rank == -1)
+                {
+                    selectedMatrix.rref();
+                    rank = selectedMatrix.getRank();
+                }
+                MessageBox.Show("Rank of matrix is " + rank.ToString());
+            }
+        }
+
+        private void btnDeterminant_Click(object sender, EventArgs e)
+        {
+            if (validMatrix())
+            {
+                selectedMatrix = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+                MessageBox.Show("Determinant of matrix is " + selectedMatrix.determinant().ToString());
+            }
+        }
+
+        private void btnTranspose_Click(object sender, EventArgs e)
+        {
+            if (validMatrix())
+            { 
+            selectedMatrix = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+            CurrentState = States.TRANSPOSE;
+            StateHandle(ref selectedMatrix);
+            }
+
+        }
+
+        private void btnUpperTriangular_Click(object sender, EventArgs e)
+        {
+            if (validMatrix())
+            {
+                selectedMatrix = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+                CurrentState = States.UPPER_TRIANGULAR;
+                StateHandle(ref selectedMatrix);
+            }
+        }
+
+        private void btnLowerTriangular_Click(object sender, EventArgs e)
+        {
+            if (validMatrix())
+            {
+                selectedMatrix = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+                CurrentState = States.LOWER_TRIANGULAR;
+                StateHandle(ref selectedMatrix);
+            }
+        }
+
+        private void btnRREF_Click(object sender, EventArgs e)
+        {
+            if (validMatrix())
+            {
+                selectedMatrix = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+                CurrentState = States.RREF;
+                StateHandle(ref selectedMatrix);
+            }
         }
     }
 }

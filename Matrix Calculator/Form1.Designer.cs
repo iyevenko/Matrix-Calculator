@@ -31,10 +31,8 @@
             this.flpMatrixA = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnMatrify = new System.Windows.Forms.Button();
             this.nudA_m = new System.Windows.Forms.NumericUpDown();
             this.nudA_n = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnStore = new System.Windows.Forms.Button();
             this.btnA = new System.Windows.Forms.Button();
             this.btnB = new System.Windows.Forms.Button();
@@ -44,6 +42,12 @@
             this.btnMultiply = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.btnTranspose = new System.Windows.Forms.Button();
+            this.btnDeterminant = new System.Windows.Forms.Button();
+            this.btnRank = new System.Windows.Forms.Button();
+            this.btnUpperTriangular = new System.Windows.Forms.Button();
+            this.btnLowerTriangular = new System.Windows.Forms.Button();
+            this.btnRREF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudA_m)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudA_n)).BeginInit();
             this.SuspendLayout();
@@ -75,17 +79,6 @@
             this.label2.Size = new System.Drawing.Size(18, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "n";
-            // 
-            // btnMatrify
-            // 
-            this.btnMatrify.Font = new System.Drawing.Font("Segoe Script", 16.125F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMatrify.Location = new System.Drawing.Point(271, 10);
-            this.btnMatrify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnMatrify.Name = "btnMatrify";
-            this.btnMatrify.Size = new System.Drawing.Size(164, 150);
-            this.btnMatrify.TabIndex = 7;
-            this.btnMatrify.Text = "Matrify";
-            this.btnMatrify.UseVisualStyleBackColor = true;
             // 
             // nudA_m
             // 
@@ -135,20 +128,9 @@
             0});
             this.nudA_n.ValueChanged += new System.EventHandler(this.nudA_n_ValueChanged);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(94, 48);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(20, 20);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "A";
-            // 
             // btnStore
             // 
-            this.btnStore.Location = new System.Drawing.Point(529, 38);
-            this.btnStore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStore.Location = new System.Drawing.Point(792, 47);
             this.btnStore.Name = "btnStore";
             this.btnStore.Size = new System.Drawing.Size(125, 67);
             this.btnStore.TabIndex = 12;
@@ -160,6 +142,7 @@
             // 
             this.btnA.Location = new System.Drawing.Point(578, 370);
             this.btnA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnA.Location = new System.Drawing.Point(1151, 118);
             this.btnA.Name = "btnA";
             this.btnA.Size = new System.Drawing.Size(125, 67);
             this.btnA.TabIndex = 13;
@@ -171,6 +154,7 @@
             // 
             this.btnB.Location = new System.Drawing.Point(578, 442);
             this.btnB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnB.Location = new System.Drawing.Point(1151, 208);
             this.btnB.Name = "btnB";
             this.btnB.Size = new System.Drawing.Size(125, 67);
             this.btnB.TabIndex = 14;
@@ -182,6 +166,7 @@
             // 
             this.btnC.Location = new System.Drawing.Point(578, 514);
             this.btnC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnC.Location = new System.Drawing.Point(1151, 298);
             this.btnC.Name = "btnC";
             this.btnC.Size = new System.Drawing.Size(125, 67);
             this.btnC.TabIndex = 15;
@@ -193,6 +178,7 @@
             // 
             this.btnAdd.Location = new System.Drawing.Point(529, 110);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Location = new System.Drawing.Point(792, 137);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(125, 67);
             this.btnAdd.TabIndex = 16;
@@ -204,6 +190,7 @@
             // 
             this.btnSubtract.Location = new System.Drawing.Point(529, 182);
             this.btnSubtract.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSubtract.Location = new System.Drawing.Point(792, 227);
             this.btnSubtract.Name = "btnSubtract";
             this.btnSubtract.Size = new System.Drawing.Size(125, 67);
             this.btnSubtract.TabIndex = 17;
@@ -212,9 +199,10 @@
             this.btnSubtract.Click += new System.EventHandler(this.btnSubtract_Click);
             // 
             // btnMultiply
-            // 
+            //
             this.btnMultiply.Location = new System.Drawing.Point(529, 254);
             this.btnMultiply.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMultiply.Location = new System.Drawing.Point(792, 317);
             this.btnMultiply.Name = "btnMultiply";
             this.btnMultiply.Size = new System.Drawing.Size(125, 67);
             this.btnMultiply.TabIndex = 18;
@@ -225,12 +213,78 @@
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
+            // btnTranspose
+            // 
+            this.btnTranspose.Location = new System.Drawing.Point(792, 442);
+            this.btnTranspose.Name = "btnTranspose";
+            this.btnTranspose.Size = new System.Drawing.Size(167, 84);
+            this.btnTranspose.TabIndex = 19;
+            this.btnTranspose.Text = "Transpose";
+            this.btnTranspose.UseVisualStyleBackColor = true;
+            this.btnTranspose.Click += new System.EventHandler(this.btnTranspose_Click);
+            // 
+            // btnDeterminant
+            // 
+            this.btnDeterminant.Location = new System.Drawing.Point(792, 532);
+            this.btnDeterminant.Name = "btnDeterminant";
+            this.btnDeterminant.Size = new System.Drawing.Size(167, 84);
+            this.btnDeterminant.TabIndex = 20;
+            this.btnDeterminant.Text = "Determinant";
+            this.btnDeterminant.UseVisualStyleBackColor = true;
+            this.btnDeterminant.Click += new System.EventHandler(this.btnDeterminant_Click);
+            // 
+            // btnRank
+            // 
+            this.btnRank.Location = new System.Drawing.Point(792, 622);
+            this.btnRank.Name = "btnRank";
+            this.btnRank.Size = new System.Drawing.Size(167, 84);
+            this.btnRank.TabIndex = 21;
+            this.btnRank.Text = "Rank";
+            this.btnRank.UseVisualStyleBackColor = true;
+            this.btnRank.Click += new System.EventHandler(this.btnRank_Click);
+            // 
+            // btnUpperTriangular
+            // 
+            this.btnUpperTriangular.Location = new System.Drawing.Point(792, 712);
+            this.btnUpperTriangular.Name = "btnUpperTriangular";
+            this.btnUpperTriangular.Size = new System.Drawing.Size(167, 84);
+            this.btnUpperTriangular.TabIndex = 22;
+            this.btnUpperTriangular.Text = "Upper Triangular";
+            this.btnUpperTriangular.UseVisualStyleBackColor = true;
+            this.btnUpperTriangular.Click += new System.EventHandler(this.btnUpperTriangular_Click);
+            // 
+            // btnLowerTriangular
+            // 
+            this.btnLowerTriangular.Location = new System.Drawing.Point(965, 712);
+            this.btnLowerTriangular.Name = "btnLowerTriangular";
+            this.btnLowerTriangular.Size = new System.Drawing.Size(167, 84);
+            this.btnLowerTriangular.TabIndex = 23;
+            this.btnLowerTriangular.Text = "Lower Triangular";
+            this.btnLowerTriangular.UseVisualStyleBackColor = true;
+            this.btnLowerTriangular.Click += new System.EventHandler(this.btnLowerTriangular_Click);
+            // 
+            // btnRREF
+            // 
+            this.btnRREF.Location = new System.Drawing.Point(965, 442);
+            this.btnRREF.Name = "btnRREF";
+            this.btnRREF.Size = new System.Drawing.Size(167, 84);
+            this.btnRREF.TabIndex = 24;
+            this.btnRREF.Text = "RREF";
+            this.btnRREF.UseVisualStyleBackColor = true;
+            this.btnRREF.Click += new System.EventHandler(this.btnRREF_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 670);
+            this.ClientSize = new System.Drawing.Size(1559, 1075);
+            this.Controls.Add(this.btnRREF);
+            this.Controls.Add(this.btnLowerTriangular);
+            this.Controls.Add(this.btnUpperTriangular);
+            this.Controls.Add(this.btnRank);
+            this.Controls.Add(this.btnDeterminant);
+            this.Controls.Add(this.btnTranspose);
             this.Controls.Add(this.btnMultiply);
             this.Controls.Add(this.btnSubtract);
             this.Controls.Add(this.btnAdd);
@@ -238,15 +292,14 @@
             this.Controls.Add(this.btnB);
             this.Controls.Add(this.btnA);
             this.Controls.Add(this.btnStore);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.nudA_n);
             this.Controls.Add(this.nudA_m);
-            this.Controls.Add(this.btnMatrify);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flpMatrixA);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "el Matriz Calculadora";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudA_m)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudA_n)).EndInit();
@@ -260,10 +313,8 @@
         private System.Windows.Forms.FlowLayoutPanel flpMatrixA;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnMatrify;
         private System.Windows.Forms.NumericUpDown nudA_m;
         private System.Windows.Forms.NumericUpDown nudA_n;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnStore;
         private System.Windows.Forms.Button btnA;
         private System.Windows.Forms.Button btnB;
@@ -273,6 +324,12 @@
         private System.Windows.Forms.Button btnMultiply;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button btnTranspose;
+        private System.Windows.Forms.Button btnDeterminant;
+        private System.Windows.Forms.Button btnRank;
+        private System.Windows.Forms.Button btnUpperTriangular;
+        private System.Windows.Forms.Button btnLowerTriangular;
+        private System.Windows.Forms.Button btnRREF;
     }
 }
 
