@@ -42,48 +42,55 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSubtract = new System.Windows.Forms.Button();
             this.btnMultiply = new System.Windows.Forms.Button();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.nudA_m)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudA_n)).BeginInit();
             this.SuspendLayout();
             // 
             // flpMatrixA
             // 
-            this.flpMatrixA.Location = new System.Drawing.Point(12, 211);
+            this.flpMatrixA.Location = new System.Drawing.Point(9, 169);
+            this.flpMatrixA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flpMatrixA.Name = "flpMatrixA";
-            this.flpMatrixA.Size = new System.Drawing.Size(632, 614);
+            this.flpMatrixA.Size = new System.Drawing.Size(474, 491);
             this.flpMatrixA.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 106);
+            this.label1.Location = new System.Drawing.Point(50, 85);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 25);
+            this.label1.Size = new System.Drawing.Size(22, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "m";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(202, 106);
+            this.label2.Location = new System.Drawing.Point(152, 85);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 25);
+            this.label2.Size = new System.Drawing.Size(18, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "n";
             // 
             // btnMatrify
             // 
             this.btnMatrify.Font = new System.Drawing.Font("Segoe Script", 16.125F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMatrify.Location = new System.Drawing.Point(361, 12);
+            this.btnMatrify.Location = new System.Drawing.Point(271, 10);
+            this.btnMatrify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMatrify.Name = "btnMatrify";
-            this.btnMatrify.Size = new System.Drawing.Size(218, 188);
+            this.btnMatrify.Size = new System.Drawing.Size(164, 150);
             this.btnMatrify.TabIndex = 7;
             this.btnMatrify.Text = "Matrify";
             this.btnMatrify.UseVisualStyleBackColor = true;
             // 
             // nudA_m
             // 
-            this.nudA_m.Location = new System.Drawing.Point(53, 134);
+            this.nudA_m.Location = new System.Drawing.Point(40, 107);
+            this.nudA_m.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudA_m.Maximum = new decimal(new int[] {
             10,
             0,
@@ -95,7 +102,7 @@
             0,
             0});
             this.nudA_m.Name = "nudA_m";
-            this.nudA_m.Size = new System.Drawing.Size(120, 31);
+            this.nudA_m.Size = new System.Drawing.Size(90, 26);
             this.nudA_m.TabIndex = 8;
             this.nudA_m.Value = new decimal(new int[] {
             1,
@@ -106,7 +113,8 @@
             // 
             // nudA_n
             // 
-            this.nudA_n.Location = new System.Drawing.Point(190, 134);
+            this.nudA_n.Location = new System.Drawing.Point(142, 107);
+            this.nudA_n.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudA_n.Maximum = new decimal(new int[] {
             10,
             0,
@@ -118,7 +126,7 @@
             0,
             0});
             this.nudA_n.Name = "nudA_n";
-            this.nudA_n.Size = new System.Drawing.Size(120, 31);
+            this.nudA_n.Size = new System.Drawing.Size(90, 26);
             this.nudA_n.TabIndex = 9;
             this.nudA_n.Value = new decimal(new int[] {
             1,
@@ -130,17 +138,19 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(125, 60);
+            this.label3.Location = new System.Drawing.Point(94, 48);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 25);
+            this.label3.Size = new System.Drawing.Size(20, 20);
             this.label3.TabIndex = 10;
             this.label3.Text = "A";
             // 
             // btnStore
             // 
-            this.btnStore.Location = new System.Drawing.Point(705, 47);
+            this.btnStore.Location = new System.Drawing.Point(529, 38);
+            this.btnStore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnStore.Name = "btnStore";
-            this.btnStore.Size = new System.Drawing.Size(167, 84);
+            this.btnStore.Size = new System.Drawing.Size(125, 67);
             this.btnStore.TabIndex = 12;
             this.btnStore.Text = "Store";
             this.btnStore.UseVisualStyleBackColor = true;
@@ -148,9 +158,10 @@
             // 
             // btnA
             // 
-            this.btnA.Location = new System.Drawing.Point(771, 463);
+            this.btnA.Location = new System.Drawing.Point(578, 370);
+            this.btnA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnA.Name = "btnA";
-            this.btnA.Size = new System.Drawing.Size(167, 84);
+            this.btnA.Size = new System.Drawing.Size(125, 67);
             this.btnA.TabIndex = 13;
             this.btnA.Text = "A";
             this.btnA.UseVisualStyleBackColor = true;
@@ -158,9 +169,10 @@
             // 
             // btnB
             // 
-            this.btnB.Location = new System.Drawing.Point(771, 553);
+            this.btnB.Location = new System.Drawing.Point(578, 442);
+            this.btnB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnB.Name = "btnB";
-            this.btnB.Size = new System.Drawing.Size(167, 84);
+            this.btnB.Size = new System.Drawing.Size(125, 67);
             this.btnB.TabIndex = 14;
             this.btnB.Text = "B";
             this.btnB.UseVisualStyleBackColor = true;
@@ -168,9 +180,10 @@
             // 
             // btnC
             // 
-            this.btnC.Location = new System.Drawing.Point(771, 643);
+            this.btnC.Location = new System.Drawing.Point(578, 514);
+            this.btnC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnC.Name = "btnC";
-            this.btnC.Size = new System.Drawing.Size(167, 84);
+            this.btnC.Size = new System.Drawing.Size(125, 67);
             this.btnC.TabIndex = 15;
             this.btnC.Text = "C";
             this.btnC.UseVisualStyleBackColor = true;
@@ -178,9 +191,10 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(705, 137);
+            this.btnAdd.Location = new System.Drawing.Point(529, 110);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(167, 84);
+            this.btnAdd.Size = new System.Drawing.Size(125, 67);
             this.btnAdd.TabIndex = 16;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -188,9 +202,10 @@
             // 
             // btnSubtract
             // 
-            this.btnSubtract.Location = new System.Drawing.Point(705, 227);
+            this.btnSubtract.Location = new System.Drawing.Point(529, 182);
+            this.btnSubtract.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSubtract.Name = "btnSubtract";
-            this.btnSubtract.Size = new System.Drawing.Size(167, 84);
+            this.btnSubtract.Size = new System.Drawing.Size(125, 67);
             this.btnSubtract.TabIndex = 17;
             this.btnSubtract.Text = "-";
             this.btnSubtract.UseVisualStyleBackColor = true;
@@ -198,19 +213,24 @@
             // 
             // btnMultiply
             // 
-            this.btnMultiply.Location = new System.Drawing.Point(705, 317);
+            this.btnMultiply.Location = new System.Drawing.Point(529, 254);
+            this.btnMultiply.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMultiply.Name = "btnMultiply";
-            this.btnMultiply.Size = new System.Drawing.Size(167, 84);
+            this.btnMultiply.Size = new System.Drawing.Size(125, 67);
             this.btnMultiply.TabIndex = 18;
             this.btnMultiply.Text = "*";
             this.btnMultiply.UseVisualStyleBackColor = true;
             this.btnMultiply.Click += new System.EventHandler(this.btnMultiply_Click);
             // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1074, 837);
+            this.ClientSize = new System.Drawing.Size(806, 670);
             this.Controls.Add(this.btnMultiply);
             this.Controls.Add(this.btnSubtract);
             this.Controls.Add(this.btnAdd);
@@ -225,7 +245,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flpMatrixA);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -252,6 +271,8 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSubtract;
         private System.Windows.Forms.Button btnMultiply;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 

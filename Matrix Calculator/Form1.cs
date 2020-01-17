@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Matrix_Calculator
 {
     public partial class Form1 : Form
     {
         public States CurrentState = States.STORE;
-        public Matrix A = null;
-        public Matrix B = null;
-        public Matrix C = null;
+        public Matrix A;
+        public Matrix B;
+        public Matrix C;
         public Matrix selectedMatrix;
 
         public Form1()
         {
-
             InitializeComponent();
             resizeMatrix(flpMatrixA, nudA_m, nudA_n);
             /*
@@ -131,6 +132,130 @@ namespace Matrix_Calculator
                 {
                     flp.Controls.Add(tbox(m + 1, n + 1));
                 }
+            }
+        }
+
+        private void saveToFile()
+        {
+            saveFileDialog.InitialDirectory = Environment.CurrentDirectory;
+            saveFileDialog.FileName = "Saved_Matrices";
+            saveFileDialog.Filter = "CSV files | *.csv";
+            saveFileDialog.DefaultExt = "csv";
+
+            StreamWriter sw = null;
+            try
+            {
+                // Only proceed if user successfully selects output file
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    sw = new StreamWriter(saveFileDialog.OpenFile());
+
+                    sw.WriteLine("A:");
+                    if (A != null)
+                    {
+                        sw.WriteLine(A.ToString());
+                    }
+                    else
+                    {
+                        sw.WriteLine($"M: {0}, N: {0}");
+                    }
+
+                    sw.WriteLine("B:");
+                    if (B != null)
+                    {
+                        sw.WriteLine(B.ToString());
+                    }
+                    else
+                    {
+                        sw.WriteLine($"M: {0}, N: {0}");
+                    }
+
+                    sw.WriteLine("C:");
+                    if (C != null)
+                    {
+                        sw.WriteLine(C.ToString());
+                    }
+                    else
+                    {
+                        sw.WriteLine($"M: {0}, N: {0}");
+                    }
+                }
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("Writing to file failed");
+            }
+            finally
+            {
+                // Make sure stream is closed even if exception is thrown
+                sw?.Close();
+            }
+        }
+
+        private void readFromFile()
+        {
+            openFileDialog.InitialDirectory = Environment.CurrentDirectory;
+            openFileDialog.FileName = "Saved_Matrices";
+            openFileDialog.Filter = "CSV files | *.csv";
+            openFileDialog.DefaultExt = "csv";
+
+            StreamReader sr = null;
+            try
+            {
+                // Only proceed if user successfully selects output file
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    sr = new StreamReader(openFileDialog.OpenFile());
+
+                    string[] currLine;
+                    double[,] values;
+                    string name;
+                    int M;
+                    int N;
+
+                    for (int k = 0; k < 3; k++)
+                    {
+                        name = sr.ReadLine().Substring(0, 1);
+                        currLine = sr.ReadLine().Split(',');
+                        M = Convert.ToInt32(currLine[0].Substring(3));
+                        N = Convert.ToInt32(currLine[1].Substring(3));
+                        values = new double[M, N];
+                        for (int i = 0; i < M; i++)
+                        {
+                            currLine = sr.ReadLine().Split(',');
+                            for (int j = 0; j < N; j++)
+                            {
+                                values[i, j] = Convert.ToDouble(currLine[j]);
+                            }
+                        }
+
+                        if (name == "A")
+                        {
+                            A = new Matrix(values);
+                        } else if (name == "B")
+                        {
+                            B = new Matrix(values);
+                        }
+                        else if (name == "C")
+                        {
+                            C = new Matrix(values);
+                        }
+                        sr.ReadLine();
+                    }
+                }
+
+                MessageBox.Show(A.ToString());
+                MessageBox.Show(B.ToString());
+                MessageBox.Show(C.ToString());
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("Reading from file failed");
+            }
+            finally
+            {
+                // Make sure stream is closed even if exception is thrown
+                sr?.Close();
             }
         }
 

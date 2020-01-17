@@ -366,14 +366,6 @@ namespace Matrix_Calculator
 
         }
 
-        public Matrix inverse()
-        {
-            if (determinant() == 0)
-            {
-                throw new ArgumentException();
-            }
-        }
-
         public bool isSquare()
         {
             return M == N;
@@ -382,14 +374,15 @@ namespace Matrix_Calculator
         public override string ToString()
         {
             string str = "";
+            str += String.Format("M: {0}, N: {1}\r\n", M, N);
             for (int i = 0; i < M; i++)
             {
-                str += "| ";
                 for (int j = 0; j < N; j++)
                 {
-                    str += values[i, j] + " ";
+                    str += values[i, j] + (j < N - 1 ? "," : "");
                 }
-                str += "|\n";
+
+                str += "\r\n";
             }
 
             return str;
