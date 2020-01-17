@@ -48,42 +48,46 @@
             this.btnUpperTriangular = new System.Windows.Forms.Button();
             this.btnLowerTriangular = new System.Windows.Forms.Button();
             this.btnRREF = new System.Windows.Forms.Button();
+            this.btnGenIdentity = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.nudA_m)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudA_n)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flpMatrixA
             // 
-            this.flpMatrixA.Location = new System.Drawing.Point(9, 169);
-            this.flpMatrixA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flpMatrixA.Location = new System.Drawing.Point(12, 211);
+            this.flpMatrixA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpMatrixA.Name = "flpMatrixA";
-            this.flpMatrixA.Size = new System.Drawing.Size(474, 491);
+            this.flpMatrixA.Size = new System.Drawing.Size(632, 614);
             this.flpMatrixA.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 85);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(67, 106);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 20);
+            this.label1.Size = new System.Drawing.Size(29, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "m";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(152, 85);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(203, 106);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(18, 20);
+            this.label2.Size = new System.Drawing.Size(24, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "n";
             // 
             // nudA_m
             // 
-            this.nudA_m.Location = new System.Drawing.Point(40, 107);
-            this.nudA_m.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudA_m.Location = new System.Drawing.Point(53, 134);
+            this.nudA_m.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nudA_m.Maximum = new decimal(new int[] {
             10,
             0,
@@ -95,7 +99,7 @@
             0,
             0});
             this.nudA_m.Name = "nudA_m";
-            this.nudA_m.Size = new System.Drawing.Size(90, 26);
+            this.nudA_m.Size = new System.Drawing.Size(120, 31);
             this.nudA_m.TabIndex = 8;
             this.nudA_m.Value = new decimal(new int[] {
             1,
@@ -106,8 +110,8 @@
             // 
             // nudA_n
             // 
-            this.nudA_n.Location = new System.Drawing.Point(142, 107);
-            this.nudA_n.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudA_n.Location = new System.Drawing.Point(189, 134);
+            this.nudA_n.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nudA_n.Maximum = new decimal(new int[] {
             10,
             0,
@@ -119,7 +123,7 @@
             0,
             0});
             this.nudA_n.Name = "nudA_n";
-            this.nudA_n.Size = new System.Drawing.Size(90, 26);
+            this.nudA_n.Size = new System.Drawing.Size(120, 31);
             this.nudA_n.TabIndex = 9;
             this.nudA_n.Value = new decimal(new int[] {
             1,
@@ -130,9 +134,10 @@
             // 
             // btnStore
             // 
-            this.btnStore.Location = new System.Drawing.Point(792, 47);
+            this.btnStore.Location = new System.Drawing.Point(1056, 59);
+            this.btnStore.Margin = new System.Windows.Forms.Padding(4);
             this.btnStore.Name = "btnStore";
-            this.btnStore.Size = new System.Drawing.Size(125, 67);
+            this.btnStore.Size = new System.Drawing.Size(167, 84);
             this.btnStore.TabIndex = 12;
             this.btnStore.Text = "Store";
             this.btnStore.UseVisualStyleBackColor = true;
@@ -140,11 +145,10 @@
             // 
             // btnA
             // 
-            this.btnA.Location = new System.Drawing.Point(578, 370);
-            this.btnA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnA.Location = new System.Drawing.Point(1151, 118);
+            this.btnA.Location = new System.Drawing.Point(1535, 148);
+            this.btnA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnA.Name = "btnA";
-            this.btnA.Size = new System.Drawing.Size(125, 67);
+            this.btnA.Size = new System.Drawing.Size(167, 84);
             this.btnA.TabIndex = 13;
             this.btnA.Text = "A";
             this.btnA.UseVisualStyleBackColor = true;
@@ -152,11 +156,10 @@
             // 
             // btnB
             // 
-            this.btnB.Location = new System.Drawing.Point(578, 442);
-            this.btnB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnB.Location = new System.Drawing.Point(1151, 208);
+            this.btnB.Location = new System.Drawing.Point(1535, 260);
+            this.btnB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnB.Name = "btnB";
-            this.btnB.Size = new System.Drawing.Size(125, 67);
+            this.btnB.Size = new System.Drawing.Size(167, 84);
             this.btnB.TabIndex = 14;
             this.btnB.Text = "B";
             this.btnB.UseVisualStyleBackColor = true;
@@ -164,11 +167,10 @@
             // 
             // btnC
             // 
-            this.btnC.Location = new System.Drawing.Point(578, 514);
-            this.btnC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnC.Location = new System.Drawing.Point(1151, 298);
+            this.btnC.Location = new System.Drawing.Point(1535, 372);
+            this.btnC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnC.Name = "btnC";
-            this.btnC.Size = new System.Drawing.Size(125, 67);
+            this.btnC.Size = new System.Drawing.Size(167, 84);
             this.btnC.TabIndex = 15;
             this.btnC.Text = "C";
             this.btnC.UseVisualStyleBackColor = true;
@@ -176,11 +178,10 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(529, 110);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAdd.Location = new System.Drawing.Point(792, 137);
+            this.btnAdd.Location = new System.Drawing.Point(1056, 171);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(125, 67);
+            this.btnAdd.Size = new System.Drawing.Size(167, 84);
             this.btnAdd.TabIndex = 16;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -188,23 +189,21 @@
             // 
             // btnSubtract
             // 
-            this.btnSubtract.Location = new System.Drawing.Point(529, 182);
-            this.btnSubtract.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnSubtract.Location = new System.Drawing.Point(792, 227);
+            this.btnSubtract.Location = new System.Drawing.Point(1056, 284);
+            this.btnSubtract.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSubtract.Name = "btnSubtract";
-            this.btnSubtract.Size = new System.Drawing.Size(125, 67);
+            this.btnSubtract.Size = new System.Drawing.Size(167, 84);
             this.btnSubtract.TabIndex = 17;
             this.btnSubtract.Text = "-";
             this.btnSubtract.UseVisualStyleBackColor = true;
             this.btnSubtract.Click += new System.EventHandler(this.btnSubtract_Click);
             // 
             // btnMultiply
-            //
-            this.btnMultiply.Location = new System.Drawing.Point(529, 254);
-            this.btnMultiply.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnMultiply.Location = new System.Drawing.Point(792, 317);
+            // 
+            this.btnMultiply.Location = new System.Drawing.Point(1056, 396);
+            this.btnMultiply.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMultiply.Name = "btnMultiply";
-            this.btnMultiply.Size = new System.Drawing.Size(125, 67);
+            this.btnMultiply.Size = new System.Drawing.Size(167, 84);
             this.btnMultiply.TabIndex = 18;
             this.btnMultiply.Text = "*";
             this.btnMultiply.UseVisualStyleBackColor = true;
@@ -213,11 +212,13 @@
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
+            // 
             // btnTranspose
             // 
-            this.btnTranspose.Location = new System.Drawing.Point(792, 442);
+            this.btnTranspose.Location = new System.Drawing.Point(1056, 552);
+            this.btnTranspose.Margin = new System.Windows.Forms.Padding(4);
             this.btnTranspose.Name = "btnTranspose";
-            this.btnTranspose.Size = new System.Drawing.Size(167, 84);
+            this.btnTranspose.Size = new System.Drawing.Size(223, 105);
             this.btnTranspose.TabIndex = 19;
             this.btnTranspose.Text = "Transpose";
             this.btnTranspose.UseVisualStyleBackColor = true;
@@ -225,9 +226,10 @@
             // 
             // btnDeterminant
             // 
-            this.btnDeterminant.Location = new System.Drawing.Point(792, 532);
+            this.btnDeterminant.Location = new System.Drawing.Point(1056, 778);
+            this.btnDeterminant.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeterminant.Name = "btnDeterminant";
-            this.btnDeterminant.Size = new System.Drawing.Size(167, 84);
+            this.btnDeterminant.Size = new System.Drawing.Size(223, 105);
             this.btnDeterminant.TabIndex = 20;
             this.btnDeterminant.Text = "Determinant";
             this.btnDeterminant.UseVisualStyleBackColor = true;
@@ -235,9 +237,10 @@
             // 
             // btnRank
             // 
-            this.btnRank.Location = new System.Drawing.Point(792, 622);
+            this.btnRank.Location = new System.Drawing.Point(1056, 891);
+            this.btnRank.Margin = new System.Windows.Forms.Padding(4);
             this.btnRank.Name = "btnRank";
-            this.btnRank.Size = new System.Drawing.Size(167, 84);
+            this.btnRank.Size = new System.Drawing.Size(223, 105);
             this.btnRank.TabIndex = 21;
             this.btnRank.Text = "Rank";
             this.btnRank.UseVisualStyleBackColor = true;
@@ -245,9 +248,10 @@
             // 
             // btnUpperTriangular
             // 
-            this.btnUpperTriangular.Location = new System.Drawing.Point(792, 712);
+            this.btnUpperTriangular.Location = new System.Drawing.Point(1056, 665);
+            this.btnUpperTriangular.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpperTriangular.Name = "btnUpperTriangular";
-            this.btnUpperTriangular.Size = new System.Drawing.Size(167, 84);
+            this.btnUpperTriangular.Size = new System.Drawing.Size(223, 105);
             this.btnUpperTriangular.TabIndex = 22;
             this.btnUpperTriangular.Text = "Upper Triangular";
             this.btnUpperTriangular.UseVisualStyleBackColor = true;
@@ -255,9 +259,10 @@
             // 
             // btnLowerTriangular
             // 
-            this.btnLowerTriangular.Location = new System.Drawing.Point(965, 712);
+            this.btnLowerTriangular.Location = new System.Drawing.Point(1287, 665);
+            this.btnLowerTriangular.Margin = new System.Windows.Forms.Padding(4);
             this.btnLowerTriangular.Name = "btnLowerTriangular";
-            this.btnLowerTriangular.Size = new System.Drawing.Size(167, 84);
+            this.btnLowerTriangular.Size = new System.Drawing.Size(223, 105);
             this.btnLowerTriangular.TabIndex = 23;
             this.btnLowerTriangular.Text = "Lower Triangular";
             this.btnLowerTriangular.UseVisualStyleBackColor = true;
@@ -265,20 +270,66 @@
             // 
             // btnRREF
             // 
-            this.btnRREF.Location = new System.Drawing.Point(965, 442);
+            this.btnRREF.Location = new System.Drawing.Point(1287, 552);
+            this.btnRREF.Margin = new System.Windows.Forms.Padding(4);
             this.btnRREF.Name = "btnRREF";
-            this.btnRREF.Size = new System.Drawing.Size(167, 84);
+            this.btnRREF.Size = new System.Drawing.Size(223, 105);
             this.btnRREF.TabIndex = 24;
             this.btnRREF.Text = "RREF";
             this.btnRREF.UseVisualStyleBackColor = true;
             this.btnRREF.Click += new System.EventHandler(this.btnRREF_Click);
             // 
+            // btnGenIdentity
+            // 
+            this.btnGenIdentity.Location = new System.Drawing.Point(1251, 59);
+            this.btnGenIdentity.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGenIdentity.Name = "btnGenIdentity";
+            this.btnGenIdentity.Size = new System.Drawing.Size(166, 84);
+            this.btnGenIdentity.TabIndex = 25;
+            this.btnGenIdentity.Text = "Generate Identity Matrix";
+            this.btnGenIdentity.UseVisualStyleBackColor = true;
+            this.btnGenIdentity.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(2079, 42);
+            this.menuStrip1.TabIndex = 26;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.saveToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 670);
-            this.ClientSize = new System.Drawing.Size(1559, 1075);
+            this.ClientSize = new System.Drawing.Size(2079, 1344);
+            this.Controls.Add(this.btnGenIdentity);
             this.Controls.Add(this.btnRREF);
             this.Controls.Add(this.btnLowerTriangular);
             this.Controls.Add(this.btnUpperTriangular);
@@ -297,12 +348,16 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flpMatrixA);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Form1";
             this.Text = "el Matriz Calculadora";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudA_m)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudA_n)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,6 +385,11 @@
         private System.Windows.Forms.Button btnUpperTriangular;
         private System.Windows.Forms.Button btnLowerTriangular;
         private System.Windows.Forms.Button btnRREF;
+        private System.Windows.Forms.Button btnGenIdentity;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     }
 }
 

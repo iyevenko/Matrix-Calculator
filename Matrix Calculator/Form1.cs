@@ -219,6 +219,7 @@ namespace Matrix_Calculator
                         currLine = sr.ReadLine().Split(',');
                         M = Convert.ToInt32(currLine[0].Substring(3));
                         N = Convert.ToInt32(currLine[1].Substring(3));
+                        if (M > 0 && N > 0) { 
                         values = new double[M, N];
                         for (int i = 0; i < M; i++)
                         {
@@ -232,21 +233,26 @@ namespace Matrix_Calculator
                         if (name == "A")
                         {
                             A = new Matrix(values);
+                            btnA.Enabled = true;
                         } else if (name == "B")
                         {
                             B = new Matrix(values);
+                            btnB.Enabled = true;
                         }
                         else if (name == "C")
                         {
                             C = new Matrix(values);
+                            btnC.Enabled = true;
                         }
                         sr.ReadLine();
+                        }
                     }
                 }
-
+                /*
                 MessageBox.Show(A.ToString());
                 MessageBox.Show(B.ToString());
                 MessageBox.Show(C.ToString());
+                */
             }
             catch (IOException)
             {
@@ -485,6 +491,49 @@ namespace Matrix_Calculator
                 CurrentState = States.RREF;
                 StateHandle(ref selectedMatrix);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (nudA_m.Value == nudA_n.Value)
+            {
+                int n = (int)nudA_m.Value;
+                double[,] identity = new double[n, n];
+                int count = 0;
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 0; j < n; j++)
+                    {
+                        if (j == count)
+                        {
+                            identity[i, j] = 1;
+                        }
+                        else
+                        {
+                            identity[i, j] = 0;
+                        }
+                    }
+                    count++;
+                }
+                Matrix im = new Matrix(identity);
+                selectedMatrix = im;
+                displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+
+            }
+            else
+            {
+                MessageBox.Show("Identity matrix must be square, ensure m and n values are the same.");
+            }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            readFromFile();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveToFile();
         }
     }
 }
