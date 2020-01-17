@@ -13,7 +13,7 @@ namespace Matrix_Calculator
     public class Matrix
     {
         private int M, N;
-        private int rank;
+        private int rank; // Set to -1 by default until computed during rref calculation (will always be a integer >= 0 otherwise)
         private double[,] values;
 
         public Matrix(int M, int N)
@@ -40,6 +40,7 @@ namespace Matrix_Calculator
             this.rank = rank;
         }
 
+        // Copies each value from a 2D array to a new ones (newVals)
         private double[,] copyValues(double[,] values)
         {
             int m = values.GetLength(0);
@@ -56,6 +57,7 @@ namespace Matrix_Calculator
             return newVals;
         }
 
+        // Add corresponding values from A to B
         public static Matrix operator + (Matrix A, Matrix B)
         {
             if (A.getM() != B.getM() || A.getN() != B.getN())
@@ -79,6 +81,7 @@ namespace Matrix_Calculator
             return C;
         }
 
+        // Add some value c to every value (for library use)
         public static Matrix operator + (Matrix A, double c)
         {
             Matrix B = new Matrix(A.getM(), A.getN());
@@ -94,8 +97,10 @@ namespace Matrix_Calculator
             return B;
         }
 
+        // Subtract corresponding values in B from A
         public static Matrix operator - (Matrix A, Matrix B)
         {
+            // Make sure matrices are the same size
             if (A.getM() != B.getM() || A.getN() != B.getN())
             {
                 throw new InvalidSizeException(A.getM(), A.getN(), B.getM(), B.getN());
@@ -117,6 +122,7 @@ namespace Matrix_Calculator
             return C;
         }
 
+        // Subtract some value c from every value (for library use)
         public static Matrix operator - (Matrix A, double c)
         {
             Matrix B = new Matrix(A.getM(), A.getN());
@@ -132,8 +138,10 @@ namespace Matrix_Calculator
             return B;
         }
 
+        // Multiply columns of A by rows of B into a new Matrix C
         public static Matrix operator * (Matrix A, Matrix B)
         {
+            // Check that matrices are compatible for multiplication
             if (A.getN() != B.getM())
             {
                 throw new InvalidSizeException(A.getM(), A.getN(), B.getM(), B.getN());
@@ -161,6 +169,7 @@ namespace Matrix_Calculator
             return C;
         }
 
+        // Multiply every value by some value c (for library use)
         public static Matrix operator * (Matrix A, double c)
         {
             Matrix B = new Matrix(A.getM(), A.getN());
@@ -183,6 +192,7 @@ namespace Matrix_Calculator
             {
                 for (int j = 0; j < N; j++)
                 {
+                    // Add 1's on diagonal and 0's everywhere else
                     if (i == j)
                     {
                         values[i, j] = 1;
@@ -274,7 +284,13 @@ namespace Matrix_Calculator
             double det = 1;
             for (int i = 0; i < N; i++)
             {
-                det *= upper.getValue(i, i);
+                double currVal = upper.getValue(i, i);
+                // if upper has Nan or infinite values, determinant must be zero
+                if (Double.IsInfinity(currVal) || Double.IsNaN(currVal))
+                {
+                    return 0;
+                }
+                det *= currVal;
             }
 
             return det;
@@ -286,7 +302,7 @@ namespace Matrix_Calculator
             int j = 0;
             int rank = -1;
 
-            for (int i = 0; i < M; i++)
+            for (int i = 0; i < M && j < N; i++)
             {
                 int yOffset = 0;
                 bool swapped = false;
@@ -352,14 +368,17 @@ namespace Matrix_Calculator
             int n = values.GetLength(1);
             double[] temp = new double[n];
 
+            // Save all from i to temp
             for (int k = 0; k < n; k++)
             {
                 temp[k] = values[i, k];
             }
+            // Copy all from j to i
             for (int k = 0; k < n; k++)
             {
                 values[i, k] = values[j, k];
             }
+            // Copy all from temp to j
             for (int k = 0; k < n; k++)
             {
                 values[j, k] = temp[k];
@@ -372,12 +391,15 @@ namespace Matrix_Calculator
             return M == N;
         }
 
+        // For csv formatting
         public override string ToString()
         {
             string str = "";
+            // First line is M and N
             str += String.Format("M: {0}, N: {1}\r\n", M, N);
             for (int i = 0; i < M; i++)
             {
+                // add all values in ith row separated by comma
                 for (int j = 0; j < N; j++)
                 {
                     str += values[i, j] + (j < N - 1 ? "," : "");
@@ -415,6 +437,7 @@ namespace Matrix_Calculator
         }
     }
 
+    // Custom exception for displaying when an operation can only be done on a square matrix
     public class InvalidSizeException : Exception
     {
         public InvalidSizeException(int am, int an, int bm, int bn) : base(

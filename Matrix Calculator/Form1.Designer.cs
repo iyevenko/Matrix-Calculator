@@ -288,7 +288,7 @@
             this.btnGenIdentity.TabIndex = 25;
             this.btnGenIdentity.Text = "Generate Identity Matrix";
             this.btnGenIdentity.UseVisualStyleBackColor = true;
-            this.btnGenIdentity.Click += new System.EventHandler(this.button1_Click);
+            this.btnGenIdentity.Click += new System.EventHandler(this.btnGenIdentity_Click);
             // 
             // menuStrip1
             // 
