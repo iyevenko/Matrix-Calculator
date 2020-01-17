@@ -343,6 +343,7 @@ namespace Matrix_Calculator
                 rank = j;
             }
 
+            this.rank = rank;
             return new Matrix(rref, rank);
         }
 
