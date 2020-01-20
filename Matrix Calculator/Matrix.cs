@@ -21,7 +21,7 @@ namespace Matrix_Calculator
             this.M = M;
             this.N = N;
             values = new double[M, N];
-            this.rank = -1;
+            rank = -1;
         }
 
         public Matrix(double[,] values)
@@ -437,19 +437,19 @@ namespace Matrix_Calculator
         }
     }
 
-    // Custom exception for displaying when an operation can only be done on a square matrix
+    // Custom exception for displaying when an operation can only be done on a specific size of matrix
     public class InvalidSizeException : Exception
     {
         public InvalidSizeException(int am, int an, int bm, int bn) : base(
             String.Format("Can not perform operation on {0}x{1} and {2}x{3} matrix", am, an, bm, bn))
         {
-
+            // call base
         }
 
         public InvalidSizeException(int m, int n) : base(
             String.Format("Can not perform operation on {0}x{1} matrix", m, n))
         {
-
+            // call base
         }
     }
 }

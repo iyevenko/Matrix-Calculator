@@ -25,33 +25,6 @@ namespace Matrix_Calculator
         {
             InitializeComponent();
             resizeMatrix(flpMatrixA, nudA_m, nudA_n);
-            /*
-            double[,] val1 = {{1, 2, 3}, 
-                              {4, 5, 6}};
-            double[,] val2 = {{9, 8, 7}, 
-                              {8, 7, 9},
-                              {7, 8, 9}
-            };
-            Matrix A = new Matrix(val1);
-            Matrix B = new Matrix(val2);
-
-            try
-            {
-                Matrix C = A * B;
-                MessageBox.Show(C.ToString());
-                Matrix Ct = C.transpose();
-                MessageBox.Show(Ct.ToString());
-                Matrix D = Ct + 1;
-                MessageBox.Show(D.ToString());
-                Matrix E = D * 2;
-                MessageBox.Show(E.ToString());
-
-            }
-            catch (InvalidSizeException ise)
-            {
-                MessageBox.Show(ise.Message);
-            }
-            */
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -101,7 +74,7 @@ namespace Matrix_Calculator
 
         }
 
-        private Matrix ConvertToMatrix(FlowLayoutPanel flp, NumericUpDown nudM, NumericUpDown nudN)
+        private Matrix convertToMatrix(FlowLayoutPanel flp, NumericUpDown nudM, NumericUpDown nudN)
         {
             // Read dimensions of matrix and create mxn matrix
             m = Convert.ToInt32(nudM.Value);
@@ -124,7 +97,7 @@ namespace Matrix_Calculator
         Matrix A;
         private void btnMatrify_Click(object sender, EventArgs e)
         {
-            A = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+            A = convertToMatrix(flpMatrixA, nudA_m, nudA_n);
             MessageBox.Show(A.ToString());
         }
         */
@@ -238,52 +211,56 @@ namespace Matrix_Calculator
                     int M;
                     int N;
 
-                    for (int k = 0; k < 3; k++)
+                    try
                     {
-                        // First line is A, B or C
-                        name = sr.ReadLine().Substring(0, 1);
+                        for (int k = 0; k < 3; k++)
+                        {
+                            // First line is A, B or C
+                            name = sr.ReadLine().Substring(0, 1);
 
-                        // Next line contains M and N
-                        currLine = sr.ReadLine().Split(',');
-                        M = Convert.ToInt32(currLine[0].Substring(3));
-                        N = Convert.ToInt32(currLine[1].Substring(3));
+                            // Next line contains M and N
+                            currLine = sr.ReadLine().Split(',');
+                            M = Convert.ToInt32(currLine[0].Substring(3));
+                            N = Convert.ToInt32(currLine[1].Substring(3));
 
-                        if (M > 0 && N > 0) { 
-                            // Save next M lines into values
-                            values = new double[M, N];
-                            for (int i = 0; i < M; i++)
+                            if (M > 0 && N > 0)
                             {
-                                currLine = sr.ReadLine().Split(',');
-                                for (int j = 0; j < N; j++)
+                                // Save next M lines into values
+                                values = new double[M, N];
+                                for (int i = 0; i < M; i++)
                                 {
-                                    values[i, j] = Convert.ToDouble(currLine[j]);
+                                    currLine = sr.ReadLine().Split(',');
+                                    for (int j = 0; j < N; j++)
+                                    {
+                                        values[i, j] = Convert.ToDouble(currLine[j]);
+                                    }
                                 }
-                            }
 
-                            //Save to appropriate matrix based on name
-                            if (name == "A")
-                            {
-                                A = new Matrix(values);
-                                btnA.Enabled = true;
-                            } else if (name == "B")
-                            {
-                                B = new Matrix(values);
-                                btnB.Enabled = true;
+                                //Save to appropriate matrix based on name
+                                if (name == "A")
+                                {
+                                    A = new Matrix(values);
+                                    btnA.Enabled = true;
+                                }
+                                else if (name == "B")
+                                {
+                                    B = new Matrix(values);
+                                    btnB.Enabled = true;
+                                }
+                                else if (name == "C")
+                                {
+                                    C = new Matrix(values);
+                                    btnC.Enabled = true;
+                                }
+                                sr.ReadLine();
                             }
-                            else if (name == "C")
-                            {
-                                C = new Matrix(values);
-                                btnC.Enabled = true;
-                            }
-                            sr.ReadLine();
                         }
                     }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Couldn't read from file. Likely incorrect formatting.");
+                    }
                 }
-                /*
-                MessageBox.Show(A.ToString());
-                MessageBox.Show(B.ToString());
-                MessageBox.Show(C.ToString());
-                */
             }
             catch (IOException)
             {
@@ -306,11 +283,6 @@ namespace Matrix_Calculator
             resizeMatrix(flpMatrixA, nudA_m, nudA_n);
         }
 
-        private void btnDisplay_Click(object sender, EventArgs e)
-        {
-            displayMatrix(flpMatrixA, nudA_m, nudA_n, A);
-        }
-
         private void btnStore_Click(object sender, EventArgs e)
         {
             
@@ -321,12 +293,6 @@ namespace Matrix_Calculator
                 btnC.Enabled = true;
                 CurrentState = States.STORE;
             }
-            
-            /*
-            btnAdd.Enabled = false;
-            btnSubtract.Enabled = false;
-            btnMultiply.Enabled = false;
-            */
         }
 
         private bool validMatrix()
@@ -396,7 +362,7 @@ namespace Matrix_Calculator
                 // Get currently displayed matrix and store to memory
                 if (CurrentState == States.STORE)
                 {
-                    arg = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+                    arg = convertToMatrix(flpMatrixA, nudA_m, nudA_n);
                     selectedMatrix = arg;
                 }
                 // Add previously selected matrix to clicked matrix
@@ -423,18 +389,6 @@ namespace Matrix_Calculator
                     selectedMatrix = arg.transpose();
                     displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
                 }
-                /*
-                else if (CurrentState == States.DETERMINANT)
-                {
-                    MessageBox.Show("Determinant of matrix is" + arg.determinant().ToString());
-                    //displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
-                }
-                else if (CurrentState == States.RANK)
-                {
-                    MessageBox.Show("Rank of matrix is" + arg.determinant().ToString());
-                    //displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
-                }
-                */
                 // Get U for selected matrix
                 else if (CurrentState == States.UPPER_TRIANGULAR)
                 {
@@ -487,16 +441,14 @@ namespace Matrix_Calculator
 
         private void btnMultiply_Click(object sender, EventArgs e)
         {
-
-           CurrentState = States.MULTIPLY;
-
+            CurrentState = States.MULTIPLY;
         }
 
         private void btnRank_Click(object sender, EventArgs e)
         {
             if (validMatrix())
             {
-                selectedMatrix = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+                selectedMatrix = convertToMatrix(flpMatrixA, nudA_m, nudA_n);
                 int rank = selectedMatrix.getRank();
                 // Compute rank through rref if not done already
                 if (rank == -1)
@@ -504,7 +456,7 @@ namespace Matrix_Calculator
                     selectedMatrix.rref();
                     rank = selectedMatrix.getRank();
                 }
-                MessageBox.Show("Rank of matrix is " + rank.ToString());
+                MessageBox.Show("Rank of matrix is " + rank);
             }
         }
 
@@ -514,7 +466,7 @@ namespace Matrix_Calculator
             {
                 if (validMatrix())
                 {
-                    selectedMatrix = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+                    selectedMatrix = convertToMatrix(flpMatrixA, nudA_m, nudA_n);
                     MessageBox.Show("Determinant of matrix is " + selectedMatrix.determinant());
                 }
             }
@@ -529,11 +481,10 @@ namespace Matrix_Calculator
         {
             if (validMatrix())
             { 
-                selectedMatrix = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+                selectedMatrix = convertToMatrix(flpMatrixA, nudA_m, nudA_n);
                 CurrentState = States.TRANSPOSE;
                 StateHandle(ref selectedMatrix);
             }
-
         }
 
         private void btnUpperTriangular_Click(object sender, EventArgs e)
@@ -542,7 +493,7 @@ namespace Matrix_Calculator
             {
                 if (validMatrix())
                 {
-                    selectedMatrix = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+                    selectedMatrix = convertToMatrix(flpMatrixA, nudA_m, nudA_n);
                     CurrentState = States.UPPER_TRIANGULAR;
                     StateHandle(ref selectedMatrix);
                 }
@@ -561,7 +512,7 @@ namespace Matrix_Calculator
             {
                 if (validMatrix())
                 {
-                    selectedMatrix = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+                    selectedMatrix = convertToMatrix(flpMatrixA, nudA_m, nudA_n);
                     CurrentState = States.LOWER_TRIANGULAR;
                     StateHandle(ref selectedMatrix);
                 }
@@ -577,7 +528,7 @@ namespace Matrix_Calculator
         {
             if (validMatrix())
             {
-                selectedMatrix = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+                selectedMatrix = convertToMatrix(flpMatrixA, nudA_m, nudA_n);
                 CurrentState = States.RREF;
                 StateHandle(ref selectedMatrix);
             }
