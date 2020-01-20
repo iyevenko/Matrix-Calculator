@@ -391,95 +391,105 @@ namespace Matrix_Calculator
 
         private void StateHandle(ref Matrix arg)
         {
-            // Get currently displayed matrix and store to memory
-            if (CurrentState == States.STORE)
+            try
             {
-                arg = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
-                selectedMatrix = arg;
-            }
-            // Add previously selected matrix to clicked matrix
-            else if (CurrentState == States.ADD)
-            {
-                selectedMatrix = selectedMatrix + arg;
-                displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
-            }
-            // Subtract clicked matrix from previously selected matrix
-            else if (CurrentState == States.SUBTRACT)
-            {
-                selectedMatrix = selectedMatrix - arg;
-                displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
-            }
-            // Multiply clicked matrix by previously selected matrix (A x B)
-            else if (CurrentState == States.MULTIPLY)
-            {
-                selectedMatrix = selectedMatrix * arg;
-                displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
-            }
-            // Transpose selected matrix
-            else if (CurrentState == States.TRANSPOSE)
-            {
-                selectedMatrix = arg.transpose();
-                displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
-            }
-            /*
-            else if (CurrentState == States.DETERMINANT)
-            {
-                MessageBox.Show("Determinant of matrix is" + arg.determinant().ToString());
-                //displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
-            }
-            else if (CurrentState == States.RANK)
-            {
-                MessageBox.Show("Rank of matrix is" + arg.determinant().ToString());
-                //displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
-            }
-            */
-            // Get U for selected matrix
-            else if (CurrentState == States.UPPER_TRIANGULAR)
-            {
-                selectedMatrix = arg.decompose()[0];
-                displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
-            }
-            // Get L for selected matrix
-            else if (CurrentState == States.LOWER_TRIANGULAR)
-            {
-                selectedMatrix = arg.decompose()[1];
-                displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
-            }
-            // Get rref for selected matrix
-            else if (CurrentState == States.RREF)
-            {
-                selectedMatrix = arg.rref();
-                displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
-            }
-            // Default: display the matrix
-            else
-            {
-                displayMatrix(flpMatrixA, nudA_m, nudA_n, arg);
-                selectedMatrix = arg;
-            }
-            // Reset to SELECT
-            CurrentState = States.SELECT;
+                // Get currently displayed matrix and store to memory
+                if (CurrentState == States.STORE)
+                {
+                    arg = ConvertToMatrix(flpMatrixA, nudA_m, nudA_n);
+                    selectedMatrix = arg;
+                }
+                // Add previously selected matrix to clicked matrix
+                else if (CurrentState == States.ADD)
+                {
+                    selectedMatrix = selectedMatrix + arg;
+                    displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+                }
+                // Subtract clicked matrix from previously selected matrix
+                else if (CurrentState == States.SUBTRACT)
+                {
+                    selectedMatrix = selectedMatrix - arg;
+                    displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+                }
+                // Multiply clicked matrix by previously selected matrix (A x B)
+                else if (CurrentState == States.MULTIPLY)
+                {
+                    selectedMatrix = selectedMatrix * arg;
+                    displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+                }
+                // Transpose selected matrix
+                else if (CurrentState == States.TRANSPOSE)
+                {
+                    selectedMatrix = arg.transpose();
+                    displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+                }
+                /*
+                else if (CurrentState == States.DETERMINANT)
+                {
+                    MessageBox.Show("Determinant of matrix is" + arg.determinant().ToString());
+                    //displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+                }
+                else if (CurrentState == States.RANK)
+                {
+                    MessageBox.Show("Rank of matrix is" + arg.determinant().ToString());
+                    //displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+                }
+                */
+                // Get U for selected matrix
+                else if (CurrentState == States.UPPER_TRIANGULAR)
+                {
+                    selectedMatrix = arg.decompose()[0];
+                    displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+                }
+                // Get L for selected matrix
+                else if (CurrentState == States.LOWER_TRIANGULAR)
+                {
+                    selectedMatrix = arg.decompose()[1];
+                    displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+                }
+                // Get rref for selected matrix
+                else if (CurrentState == States.RREF)
+                {
+                    selectedMatrix = arg.rref();
+                    displayMatrix(flpMatrixA, nudA_m, nudA_n, selectedMatrix);
+                }
+                // Default: display the matrix
+                else
+                {
+                    displayMatrix(flpMatrixA, nudA_m, nudA_n, arg);
+                    selectedMatrix = arg;
+                }
+                // Reset to SELECT
+                CurrentState = States.SELECT;
 
-            // If there's nothing in the memory slot, make it Disabled
-            if (A == null)
-            {
-                btnA.Enabled = false;
+                // If there's nothing in the memory slot, make it Disabled
+                if (A == null)
+                {
+                    btnA.Enabled = false;
+                }
+                if (B == null)
+                {
+                    btnB.Enabled = false;
+                }
+                if (C == null)
+                {
+                    btnC.Enabled = false;
+                }
             }
-            if (B == null)
+            catch (InvalidSizeException ise)
             {
-                btnB.Enabled = false;
+                // Display custom message if not a square matrix
+                MessageBox.Show(ise.Message);
             }
-            if (C == null)
-            {
-                btnC.Enabled = false;
-            }
-            
+
 
         }
 
         private void btnMultiply_Click(object sender, EventArgs e)
         {
-            CurrentState = States.MULTIPLY;
+
+           CurrentState = States.MULTIPLY;
+
         }
 
         private void btnRank_Click(object sender, EventArgs e)
